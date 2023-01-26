@@ -15,6 +15,9 @@
         <!--Let browser know website is optimized for mobile-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
+        <!-- Adiciona o arquivo Style do Header -->
+        <link rel="stylesheet" type="text/css" href="style/header.css" />
+
     </head>
 
     <body>
@@ -51,9 +54,4 @@
         </div>
       </nav>
 
-      <style>
-        ::-webkit-scrollbar {
-          display: none;
-        }
-
-      </style>
+    
