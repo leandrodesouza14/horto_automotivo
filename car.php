@@ -5,9 +5,8 @@
 	include_once 'includes/message.php';
 
 	// Inclusão da pesquisa de todos os dados do carro selecionado
-	require_once 'php_action/select/select_car_id.php';
-	// Definição do array car
-	$car[] = $_SESSION['car'];
+	require_once 'php_action/functions/select_car_id.php';
+	$carro = selectCarId($resultado);
 
 	// Inclusão da pesquisa das observações do carro selecionado
 	require_once 'php_action/select/select_obs_car.php';
@@ -40,18 +39,18 @@
     		</div>
 			<div class="card">
 				<div class="card-image">
-					<img class="materialboxed" src="/horto_automotivo/images/<?php echo $dados['foto']; ?>">
+					<img class="materialboxed" src="/horto_automotivo/images/<?php echo $carro[7]; ?>">
 				</div>
 			</div>
       <div class="card">
         <div class="card-content black-text">
 	      	<ul class="collection">
-				    <li class="collection-item"><strong>Id:</strong> <?php echo $dados['id']; ?></li>
-				    <li class="collection-item"><strong>Montadora:</strong> <?php echo $dados['montadora']; ?></li>
-				    <li class="collection-item"><strong>Modelo:</strong> <?php echo $dados['modelo']; ?></li>
-				    <li class="collection-item"><strong>Ano:</strong> <?php echo $dados['ano']; ?></li>
-				    <li class="collection-item"><strong>Motorização:</strong> <?php echo $dados['motorizacao']; ?></li>
-				    <li class="collection-item"><strong>Chassis:</strong> <?php echo $dados['chassis']; ?></li>
+				    <li class="collection-item"><strong>Id:</strong> <?php echo $carro[0]; ?></li>
+				    <li class="collection-item"><strong>Montadora:</strong> <?php echo $carro[1]; ?></li>
+				    <li class="collection-item"><strong>Modelo:</strong> <?php echo $carro[2]; ?></li>
+				    <li class="collection-item"><strong>Ano:</strong> <?php echo $carro[3]; ?></li>
+				    <li class="collection-item"><strong>Motorização:</strong> <?php echo $carro[5]; ?></li>
+				    <li class="collection-item"><strong>Chassis:</strong> <?php echo $carro[6]; ?></li>
 	  			</ul>
 	  		</div>
 	  	</div>
