@@ -16,10 +16,10 @@
 			<h6><strong>Veículo:</strong> <?php echo $carro['montadora']; echo "&nbsp;"; echo $carro['modelo']; echo "&nbsp;"; echo $carro['ano']; ?></h6>
 			<br/>
 			<!-- Formulário para preenchimento no novo status -->
-			<form action="php_action/create_obs.php" method="POST" name="add_obs" id="add_obs">
+			<form action="php_action/update_obs.php" method="POST" name="update_obs_form">
 				<!-- Campo Status -->
 				<div class="input-field col s12">
-    				<select name="obs" required>
+    				<select name="status" required>
       					<option value="" disabled selected>Selecione uma opção</option>
       					<option value="Disponível para aula">Disponível para aula</option>
 						<option value="Exclusivo de montadora">Exclusivo de montadora</option>
@@ -37,8 +37,10 @@
 					<textarea name="descricao" id="descricao" class="materialize-textarea"></textarea>
           			<label for="descricao">Descrição</label>
 				</div>
+				<!-- Campo oculto que envia o ID do carro -->
+				<input type="hidden" name="id_carro" value="<?php echo $carro['id']; ?>">
 				<!-- Botão Adicionar Status -->
-				<a href="php_action/create_obs.php?id=<?php echo $carro['id']; ?>" class="btn"> Adicionar Observação </a>
+				<button type="submit" class="btn green" name="btn_update_obs"> Alterar Status </button>
 				<!-- Botão página carro -->
 				<a href="car.php?id=<?php echo $carro['id']; ?>" class="btn red"> Cancelar edição </a>
 			</form>
