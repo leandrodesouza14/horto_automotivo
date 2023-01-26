@@ -1,66 +1,41 @@
 <?php
-
-include_once 'includes/header.php';
-
-include_once 'php_action/db_connect.php';
-
-include_once 'includes/message.php';
-
-
-if (isset($_COOKIE['user'])):
-
-    $id = mysqli_escape_string($connect, $_COOKIE['user']);
-    $sql = "SELECT * FROM colaborador WHERE id = '$id'";
-    $resultado = mysqli_query($connect, $sql);
-    $dados = mysqli_fetch_array($resultado);
-
-endif;
-
+	// Inclusão do cabeçalho superior
+	include_once 'includes/header.php';
+	// Inclusão da função selectUser
+	require_once 'php_action/functions/select_user.php';
+	$usuario = selectUser($resultado);
 ?>
 
-<style>
-	
-	#titulocategoria {
-		height: 40px;
-	}
+<!-- Adiciona o arquivo Style da página -->
+<link rel="stylesheet" type="text/css" href="style/user.css" />
 
-</style>
-
+<!-- Inicio da sessão da página -->
 <div class="section">
-
 	<div class="container">
 		<div class="row">
 			<h5 id=titulocategoria class="col s12">Dados do usuário</h5>
-
 			<div class="col s3">
-				<?php if(empty($dados['foto'])): ?>
-				<div class="card">
-			        <div class="card-image">
-			        	<img class="materialboxed" src="/horto_automotivo/images/no_photo.png">
-			        </div>
-		      	</div>
-		      	<?php else: ?>
 		      	<div class="card">
 			        <div class="card-image">
-			        	<img class="materialboxed" src="/horto_automotivo/images/<?php echo $dados['foto']; ?>">
+						<!-- Imagem do usuário -->
+			        	<img class="materialboxed" src="/horto_automotivo/images/<?php echo $usuario['5']; ?>">
 			        </div>
 		      	</div>
-				<?php endif; ?>
 			</div>
-
 			<div class="col s8 grey lighten-5">
-
 				<ul class="collection">
-					<li class="collection-item"><strong>Nome: </strong><?php echo $dados['nome'] ?></li>
-					<li class="collection-item"><strong>Cargo: </strong><?php echo $dados['cargo'] ?></li>
-					<li class="collection-item"><strong>Email: </strong><?php echo $dados['email'] ?>
-					<li class="collection-item"><strong>Registro: </strong><?php echo $dados['registro'] ?>
+					<li class="collection-item"><strong>Nome: </strong><?php echo $usuario['1']; ?></li>
+					<li class="collection-item"><strong>Cargo: </strong><?php echo $usuario['2']; ?></li>
+					<li class="collection-item"><strong>Email: </strong><?php echo $usuario['3']; ?></li>
+					<li class="collection-item"><strong>Registro: </strong><?php echo $usuario['4']; ?></li>
 				</ul>
 			</div>
 		</div>
 	</div>
+<!-- Fim da seção da página -->
 </div>
 
 <?php
-include_once 'includes/footer.php';
+	//Inclusão do rodapé da página
+	include_once 'includes/footer.php';
 ?>

@@ -11,7 +11,7 @@
 	$idcarro = $status['id_carro'];
 	require_once 'php_action/functions/select_car_status.php';
 	$carro = selectCar($resultado);
-	// Inslusão da função selectColab
+	// Inclusão da função selectColab
 	$idcolab = $status['id_criador'];
 	require_once 'php_action/functions/select_colab_status.php';
 	$colaborador = selectColabStatus($resultado);
