@@ -16,7 +16,7 @@
 			<h6><strong>Veículo:</strong> <?php echo $carro['montadora']; echo "&nbsp;"; echo $carro['modelo']; echo "&nbsp;"; echo $carro['ano']; ?></h6>
 			<br/>
 			<!-- Formulário para preenchimento no novo status -->
-			<form action="php_action/update_obs.php" method="POST" name="update_obs_form">
+			<form action="php_action/update_status.php" method="POST" name="update_obs_form">
 				<!-- Campo Status -->
 				<div class="input-field col s12">
     				<select name="status" required>
