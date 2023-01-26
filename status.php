@@ -45,8 +45,7 @@
 							<td><a href="car.php?id=<?php echo $carro[1]; ?>"><?php echo $carro[0]; ?></a></td>
 							<td><?php echo $status['observacao']; ?></td>
 							<td><?php echo $status['descricao']; ?></td>
-							<td>
-								<?php echo $colaborador; ?>
+							<td><a href="user.php?id=<?php echo $colaborador[0]; ?>"><?php echo $colaborador[1]; ?></a>
 							</td>
 							<td>
 								<?php 
@@ -61,7 +60,7 @@
 			</div>
 		</div>
 	</div>
-
+<!-- Fim da seção da página -->
 </div>
 
 <?php

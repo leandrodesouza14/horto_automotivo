@@ -10,7 +10,7 @@ if (isset($idcolab) && !empty($idcolab)) {
         function selectColabStatus($resultado)
         {
             $array = mysqli_fetch_array($resultado);
-            return $array['nome'];
+            return array($array['id'], $array['nome']);
         }
     }
 }
