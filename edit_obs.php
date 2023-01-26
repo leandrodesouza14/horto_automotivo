@@ -49,17 +49,12 @@
 </div>
 
 <script>
-
 	// Carregamento das propriedades do Select
 
 	document.addEventListener('DOMContentLoaded', function() {
     var sel = document.querySelectorAll('select');
     M.FormSelect.init(sel)
   })
-
-</script>
-
-<script>
 
   document.getElementById("add_instructor").addEventListener("submit", function(event) {
     var registro = document.getElementById("registro").value;
@@ -69,9 +64,9 @@
         alert("Número de registro inválido, por favor digite um número de registro válido com 8 caracteres numéricos.");
     }
   });
-
 </script>
 
 <?php
-include_once 'includes/footer.php';
+	// Inclue o rodapé a página
+	include_once 'includes/footer.php';
 ?>
