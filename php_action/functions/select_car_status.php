@@ -7,10 +7,10 @@ if (isset($idcarro) && !empty($idcarro)) {
     $sql = "SELECT * FROM carros WHERE id = '$id'";
     $resultado = mysqli_query($connect, $sql);
         if (mysqli_num_rows($resultado) === 1) {
-        function selectCar($resultado){
-            $array = mysqli_fetch_array($resultado);
-            return array($array['montadora'] . " " . $array['modelo'] . " " . $array['ano'] . " " . $array['cor'], $array['id']);
-        }
+            function selectCar($resultado){
+                $array = mysqli_fetch_array($resultado);
+                return array($array['montadora'] . " " . $array['modelo'] . " " . $array['ano'] . " " . $array['cor'], $array['id']);
+            }
         } else {
             mysqli_close($connect);
             $_SESSION['mensagem'] = "O carro selecionado não existe!";

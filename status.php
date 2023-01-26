@@ -11,6 +11,10 @@
 	$idcarro = $status['id_carro'];
 	require_once 'php_action/functions/select_car_status.php';
 	$carro = selectCar($resultado);
+	// Inslusão da função selectColab
+	$idcolab = $status['id_criador'];
+	require_once 'php_action/functions/select_colab_status.php';
+	$colaborador = selectColabStatus($resultado);
 	// Inclusão da função datatime
 	require_once 'php_action/functions/datatime.php';
 
@@ -42,6 +46,7 @@
 							<td><?php echo $status['observacao']; ?></td>
 							<td><?php echo $status['descricao']; ?></td>
 							<td>
+								<?php echo $colaborador; ?>
 							</td>
 							<td>
 								<?php 
