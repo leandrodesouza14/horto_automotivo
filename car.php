@@ -32,39 +32,17 @@
 					<span class="card-title"><strong>Status</strong></span>
 					<p>Esse é o status do veículo:</p>
 					<br>
+					<!-- Botão dinâmico de exibição de status do veículo -->
 					<a href="obs.php?id=<?php echo $obs['id']; ?>" class="btn <?php echo $color; ?>"><?php echo $obs['observacao']; ?></a>
-	<?php
-
-
-if (isset($_GET['id'])):
-
-	$id = mysqli_escape_string($connect, $_GET['id']);
-
-	$sql = "SELECT * FROM carros WHERE id = '$id'";
-	$resultado = mysqli_query($connect, $sql);
-	if(mysqli_num_rows($resultado) > 0):
-		$dados = mysqli_fetch_array($resultado);
-
-?>
-        	<form style="display: inline-block;" method="POST" action="add_obs.php" name="add_obs" id="add_obs">
-							<input type="hidden" name="id_carro" value="<?php echo $dados['id']; ?>">
-							<input type="hidden" name="montadora" value="<?php echo $dados['montadora']; ?>">
-							<input type="hidden" name="modelo" value="<?php echo $dados['modelo']; ?>">
-							<input type="hidden" name="ano" value="<?php echo $dados['ano']; ?>">
-							<button type="submit" name="btn-add-obs" class="btn orange"><i class="material-icons">edit</i></button>
-					</form>
-      </div>
-    </div>
-
-<?php
-	endif;
-endif;
-?>
-      	<div class="card">
-      		<div class="card-image">
-      			<img class="materialboxed" src="/horto_automotivo/images/<?php echo $dados['foto']; ?>">
-      		</div>
-      	</div>
+					<!-- Botão para edição do Status atual -->
+					<a href="edit_obs.php?id=<?php echo $obs['id']; ?>" class="btn orange"><i class="material-icons">edit</i></a>
+      			</div>
+    		</div>
+			<div class="card">
+				<div class="card-image">
+					<img class="materialboxed" src="/horto_automotivo/images/<?php echo $dados['foto']; ?>">
+				</div>
+			</div>
       <div class="card">
         <div class="card-content black-text">
 	      	<ul class="collection">
