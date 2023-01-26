@@ -17,35 +17,30 @@
 			<br/>
 			<!-- Formulário para preenchimento no novo status -->
 			<form action="php_action/create_obs.php" method="POST" name="add_obs" id="add_obs">
-				
+				<!-- Campo Status -->
 				<div class="input-field col s12">
     				<select name="obs" required>
       					<option value="" disabled selected>Selecione uma opção</option>
       					<option value="Disponível para aula">Disponível para aula</option>
-     						<option value="Exclusivo de montadora">Exclusivo de montadora</option>
-     						<option value="Em manutenção">Em manutenção</option>
-     						<option value="Com problema mecânico">Com problema mecânico</option>
-     						<option value="Com problema elétrico">Com problema elétrico</option>
-     						<option value="Não disponível">Não disponível</option>
-     						<option value="Reservado para SAEP">Reservado para SAEP</option>
-     						<option value="Em uso na Olimpíada">Em uso na Olimpíada</option>
+						<option value="Exclusivo de montadora">Exclusivo de montadora</option>
+						<option value="Em manutenção">Em manutenção</option>
+						<option value="Com problema mecânico">Com problema mecânico</option>
+						<option value="Com problema elétrico">Com problema elétrico</option>
+						<option value="Não disponível">Não disponível</option>
+						<option value="Reservado para SAEP">Reservado para SAEP</option>
+						<option value="Em uso na Olimpíada">Em uso na Olimpíada</option>
     				</select>
-    				<label>Cargo</label>
+    				<label>Status</label>
   				</div>
-
+				<!-- Campo Descricão -->
 				<div class="input-field col s12">
 					<textarea name="descricao" id="descricao" class="materialize-textarea"></textarea>
-          <label for="descricao">Descrição</label>
+          			<label for="descricao">Descrição</label>
 				</div>
-
-				<input type="hidden" name="id_carro" value="<?php echo $_POST['id_carro']; ?>">
-				<input type="hidden" name="id_criador" value="<?php echo $_SESSION['id_usuario'];?>"
-				>
-
-				<button type="submit" name="btn-add-obs" class="btn"> Adicionar Observação </button>
-
-				<a href="car.php?id=<?php echo $_POST['id_carro']; ?>" class="btn green"> Lista de Observação </a>
-
+				<!-- Botão Adicionar Status -->
+				<a href="php_action/create_obs.php?id=<?php echo $carro['id']; ?>" class="btn"> Adicionar Observação </a>
+				<!-- Botão página carro -->
+				<a href="car.php?id=<?php echo $carro['id']; ?>" class="btn red"> Cancelar edição </a>
 			</form>
 		</div>
 	</div>
