@@ -14,7 +14,8 @@ if(isset($_POST['btn_update_obs'])){
 		$descricao = "-";
 	}
 	// Obtem o ID do usuário via Session
-	$id_criador = $_SESSION['id'];
+	session_start();
+	$id_criador = $_SESSION['id_usuario'];
 	// Seleciona o fusu horário e define a data e hora da inserção
 	date_default_timezone_set('America/Sao_Paulo');
 	$date = date('Y-m-d H:i:s');
