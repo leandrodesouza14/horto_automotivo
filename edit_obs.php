@@ -1,21 +1,21 @@
 <?php
-
-include_once 'includes/header.php';
-
-include_once 'php_action/db_connect.php';
-
+	// Inclusão do cabeçalho superior
+	include_once 'includes/header.php';
+	// Inclusão da função que recebe os dados da pagina
+	require_once 'php_action/functions/obs_edit.php';
+	// Variável que armazena os dados do carro
+	$carro = obsCar($resultado);
 ?>
-
+<!-- Inicio da sessão da pagina completa -->
 <div class="section">
 	<div class="row">
 		<div class="col s12 m6 push-m3">
 			<h3 class="light">Alterar Status</h3>
 			<br/>
-
-			<h6><strong>Veículo:</strong> <?php echo $_POST['montadora']; echo "&nbsp;"; echo $_POST['modelo']; echo "&nbsp;"; echo $_POST['ano']; ?></h6>
-
+			<!-- Dados do veículo ao qual a observação se refere -->
+			<h6><strong>Veículo:</strong> <?php echo $carro['montadora']; echo "&nbsp;"; echo $carro['modelo']; echo "&nbsp;"; echo $carro['ano']; ?></h6>
 			<br/>
-
+			<!-- Formulário para preenchimento no novo status -->
 			<form action="php_action/create_obs.php" method="POST" name="add_obs" id="add_obs">
 				
 				<div class="input-field col s12">
