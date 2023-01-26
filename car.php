@@ -33,9 +33,9 @@
 					<p>Esse é o status do veículo:</p>
 					<br>
 					<!-- Botão dinâmico de exibição de status do veículo -->
-					<a href="obs.php?id=<?php echo $obs['id']; ?>" class="btn <?php echo $color; ?>"><?php echo $obs['observacao']; ?></a>
+					<a href="status.php?id=<?php echo $obs['id']; ?>" class="btn <?php echo $color; ?>"><?php echo $obs['observacao']; ?></a>
 					<!-- Botão para edição do Status atual -->
-					<a href="edit_obs.php?id=<?php echo $obs['id']; ?>" class="btn orange"><i class="material-icons">edit</i></a>
+					<a href="edit_status.php?id=<?php echo $obs['id']; ?>" class="btn orange"><i class="material-icons">edit</i></a>
       			</div>
     		</div>
 			<div class="card">
