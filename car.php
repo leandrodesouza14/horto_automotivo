@@ -1,67 +1,40 @@
 <?php
+	// Inclusão do cabeçalho superior
+	include_once 'includes/header.php';
+	// Inclusão do script de mensagens
+	include_once 'includes/message.php';
 
-include_once 'includes/header.php';
-include_once 'includes/message.php';
+	// Inclusão da pesquisa de todos os dados do carro selecionado
+	require_once 'php_action/select/select_car_id.php';
+	// Definição do array car
+	$car[] = $_SESSION['car'];
 
-include_once 'php_action/db_connect.php';
+	// Inclusão da pesquisa das observações do carro selecionado
+	require_once 'php_action/select/select_obs_car.php';
+	// Definição do array obs
+	$obs[] = $_SESSION['obs'];
 
-if (isset($_GET['id'])):
-
-
-	$id = mysqli_escape_string($connect, $_GET['id']);
-
-	$sql = "SELECT * FROM carros WHERE id = '$id'";
-	$resultado = mysqli_query($connect, $sql);
-	$dados = mysqli_fetch_array($resultado);
-
-endif;
-
+	// Inclusão da função que define a cor do botão status
+	require_once 'php_action/functions/color_status.php';
+	// Definição do array obs
+	$color = colorStatus($observacao);
 ?>
 
-<style type="text/css">
-	#tabela {
-		max-height: 400px;
-		overflow-y: auto;
-		padding-right: 20px;
-	}
-</style>
+<!-- Adiciona o arquivo Style das tabelas -->
+<link rel="stylesheet" type="text/css" href="style/car.css" />
 
+<!-- Inicio da sessão da pagina completa -->
 <div class="section">
-
 	<div class="row">
-
 		<div class="col s4 push-s1 grey lighten-5">
-<?php 
-if (isset($_GET['id'])):
+			<div class="card blue darken-2">
+				<div class="card-content white-text">
+					<span class="card-title"><strong>Status</strong></span>
+					<p>Esse é o status do veículo:</p>
+					<br>
+					<a href="obs.php?id=<?php echo $obs['id']; ?>" class="btn <?php echo $color; ?>"><?php echo $obs['observacao']; ?></a>
+	<?php
 
-	$id = mysqli_escape_string($connect, $_GET['id']);
-
-	$sql = "SELECT * FROM observacao_carros WHERE id_carro = '$id' ORDER BY data_criacao DESC";
-	$resultado = mysqli_query($connect, $sql);
-	if(mysqli_num_rows($resultado) > 0):
-		$dados = mysqli_fetch_array($resultado);
-?>
-
-      <div class="card blue darken-2">
-        <div class="card-content white-text">
-          <span class="card-title"><strong>Status</strong></span>
-          <p>Esse é o status do veículo:</p>
-          <br>
-          <a href="obs.php?id=<?php echo $dados ['id'] ?>" class="btn 
-
-          	<?php
-				    if ($dados['observacao'] === "Exclusivo de montadora" || $dados['observacao'] === "Reservado para SAEP" || $dados['observacao'] === "Em uso na Olimpíada" || $dados['observacao'] === "Em manutenção"):
-							echo 'deep-orange lighten-1';
-						elseif ($dados['observacao'] === "Disponível para aula"):
-						  echo 'green';
-						elseif ($dados['observacao'] === "Com problema mecânico" || $dados['observacao'] === "Com problema elétrico" || $dados['observacao'] === "Não disponível"):
-							echo 'red';
-						endif;
-			      ?>"><?php echo $dados['observacao']; ?></a>
-<?php
-
-	endif;
-endif;
 
 if (isset($_GET['id'])):
 
