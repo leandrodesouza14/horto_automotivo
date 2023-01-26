@@ -7,18 +7,31 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
     $sql = "SELECT * FROM carros WHERE id = '$id'";
     $resultado = mysqli_query($connect, $sql);
         if (mysqli_num_rows($resultado) === 1) {
-            function selectCarId($resultado){
+            function selectCarId($resultado) {
                 $carro = mysqli_fetch_array($resultado);
-                return array(
-                    $carro['id'],
-                    $carro['montadora'],
-                    $carro['modelo'],
-                    $carro['ano'],
-                    $carro['cor'],
-                    $carro['motorizacao'],
-                    $carro['chassis'],
-                    $carro['foto']
-                );
+                if (empty($carro['foto'])) {
+                    return array(
+                        $carro['id'],
+                        $carro['montadora'],
+                        $carro['modelo'],
+                        $carro['ano'],
+                        $carro['cor'],
+                        $carro['motorizacao'],
+                        $carro['chassis'],
+                        'no_image.png'
+                    );
+                } else {
+                    return array(
+                        $carro['id'],
+                        $carro['montadora'],
+                        $carro['modelo'],
+                        $carro['ano'],
+                        $carro['cor'],
+                        $carro['motorizacao'],
+                        $carro['chassis'],
+                        $carro['foto']
+                    );
+                }
             }
         } else {
             mysqli_close($connect);

@@ -37,36 +37,40 @@
 					<a href="edit_status.php?id=<?php echo $obs['id']; ?>" class="btn orange"><i class="material-icons">edit</i></a>
       			</div>
     		</div>
+			<!-- Imagem do caro -->
 			<div class="card">
 				<div class="card-image">
 					<img class="materialboxed" src="/horto_automotivo/images/<?php echo $carro[7]; ?>">
 				</div>
 			</div>
-      <div class="card">
-        <div class="card-content black-text">
-	      	<ul class="collection">
-				    <li class="collection-item"><strong>Id:</strong> <?php echo $carro[0]; ?></li>
-				    <li class="collection-item"><strong>Montadora:</strong> <?php echo $carro[1]; ?></li>
-				    <li class="collection-item"><strong>Modelo:</strong> <?php echo $carro[2]; ?></li>
-				    <li class="collection-item"><strong>Ano:</strong> <?php echo $carro[3]; ?></li>
-				    <li class="collection-item"><strong>Motorização:</strong> <?php echo $carro[5]; ?></li>
-				    <li class="collection-item"><strong>Chassis:</strong> <?php echo $carro[6]; ?></li>
-	  			</ul>
-	  		</div>
-	  	</div>
-	  </div>
+			<!-- Dados do carro -->
+			<div class="card">
+				<div class="card-content black-text">
+					<ul class="collection">
+							<li class="collection-item"><strong>Id:</strong> <?php echo $carro[0]; ?></li>
+							<li class="collection-item"><strong>Montadora:</strong> <?php echo $carro[1]; ?></li>
+							<li class="collection-item"><strong>Modelo:</strong> <?php echo $carro[2]; ?></li>
+							<li class="collection-item"><strong>Ano:</strong> <?php echo $carro[3]; ?></li>
+							<li class="collection-item"><strong>Motorização:</strong> <?php echo $carro[5]; ?></li>
+							<li class="collection-item"><strong>Chassis:</strong> <?php echo $carro[6]; ?></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- Coluna a direita -->
 	  		<div class="col s5 push-s1 grey lighten-5">
-	      <div class="card purple darken-4">
-	        <div class="card-content white-text">
-	          <span class="card-title"><strong>Histórico de Manutenção</strong></span>
-	          <p>Aqui você pode ver todas as manutenções desse veículo:</p>
-	          <br>
-	          <form method="POST" action="man.php?id=<?php echo $_GET['id']; ?>" name="manutencao" id="manutencao">
+				<!-- Histórico de manutenção -->
+				<div class="card purple darken-4">
+					<div class="card-content white-text">
+						<span class="card-title"><strong>Histórico de Manutenção</strong></span>
+						<p>Aqui você pode ver todas as manutenções desse veículo:</p>
+						<br>
+						<form method="POST" action="man.php?id=<?php echo $_GET['id']; ?>" name="manutencao" id="manutencao">
 							<input type="hidden" name="id_carro" value="<?php echo $_GET['id']; ?>">
 							<button type="submit" name="btn-man" class="btn orange"> Histórico Completo</button>
 						</form>
-        </div>
-        <div class="card-action grey lighten-3">
+					</div>
+					<div class="card-action grey lighten-3">
 <?php 
 
 if (isset($_GET['id'])):
