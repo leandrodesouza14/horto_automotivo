@@ -66,7 +66,6 @@
 						<p>Aqui você pode ver todas as manutenções desse veículo:</p>
 						<br>
 						<form method="POST" action="man.php?id=<?php echo $_GET['id']; ?>" name="manutencao" id="manutencao">
-							<input type="hidden" name="id_carro" value="<?php echo $_GET['id']; ?>">
 							<button type="submit" name="btn-man" class="btn orange"> Histórico Completo</button>
 						</form>
 					</div>
