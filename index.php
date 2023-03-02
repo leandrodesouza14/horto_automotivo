@@ -143,7 +143,7 @@
 					<!-- Tabela para exibição de todos os colaboradores -->
 					<tr>
 						<td><?php echo $colab['registro']; ?></td>
-						<td><a href="user_group.php?nome=<?php echo $colab['nome']; ?>"><?php echo $colab['nome']; ?></a></td>
+						<td><a href="user.php?id=<?php echo $colab['id']; ?>"><?php echo $colab['nome']; ?></a></td>
 						<td><?php echo $colab['cargo']; ?></td>
 						<td><?php echo $colab['email']; ?></td>
 						<!-- Botão que chama a página edit_collaborator.php para editar o colaborador -->

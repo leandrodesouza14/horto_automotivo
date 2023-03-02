@@ -121,7 +121,7 @@ if(mysqli_num_rows($resultado) > 0):
     while($dados_colaborador = mysqli_fetch_array($resultado)):
 ?>
     <tr>
-        <td><a href="user_group.php?nome=<?php echo $dados_colaborador['nome'];?>"><?php echo $dados_colaborador['nome']; ?></a></td>
+        <td><a href="user.php?id=<?php echo $dados_colaborador['id'];?>"><?php echo $dados_colaborador['nome']; ?></a></td>
         <td><?php echo $dados_colaborador['cargo'];?></td>
         <td><a href="#modal1<?php echo $dados_colaborador['id']; ?>" class="btn-floating btn-small red modal-trigger"><i class="material-icons">delete</i></a></td>
     </tr>

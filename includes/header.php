@@ -43,7 +43,7 @@
                   <i class="material-icons right">exit_to_app</i>
                 </div>
               </a>
-              <a href="user.php">
+              <a href="user.php?id=<?php echo $dados['id']; ?>">
                 <div class="col s2 right">
                     <?php echo $dados['nome'];?>
                 </div>
